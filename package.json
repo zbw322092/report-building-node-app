@@ -1,7 +1,7 @@
 {
   "name": "report-component",
   "version": "1.0.0",
-  "description": "scroll-like component report, presentation based on reveal.js",
+  "description": "building node.js web app report, presentation based on reveal.js",
   "author": "Bowen Zhong <bz4e14@soton.ac.uk>",
   "license": "MIT",
   "main": "js/reveal.js",
