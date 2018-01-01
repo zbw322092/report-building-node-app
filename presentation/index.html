@@ -65,12 +65,12 @@
 			var docsLength = docs.length;
 			// var i = docsLength-1, pages=[];
 			var l = docsLength;
-			var i = 0;
+			var i = l-1;
 			var pages = [];
-			while (i < l) {
+			while (i >= 0) {
 				var page = docs[i].import.querySelector('#page');
 				container.appendChild(page);
-				i++;
+				i--;
 			}
 		}
 

@@ -1,9 +1,186 @@
 <section id="page">
+  <!-- ********************* Database migration ************************** -->
   <section data-markdown>
     <textarea data-template>
       Database migration <br>
       References: <br>
       [[1]](https://kostasbariotis.com/data-migration-with-nodejs/) Database Migrations with Nodejs <br>
+      [[2]](https://www.red-gate.com/hub/product-learning/sql-source-control/moving-from-application-automation-to-true-devops-by-including-the-database) Moving from application automation to true DevOps by including the database <br><br>
+      Todo <br>
+      [[1]](https://martinfowler.com/articles/evodb.html#DevelopersContinuouslyIntegrateDatabaseChanges) Evolutionary Database Design <br>
+
+    </textarea>
+  </section>
+
+
+  <!-- ********************* CONFIGURATION ************************** -->
+  <section data-markdown>
+    <textarea data-template>
+      CONFIGURATION <br>
+      Using nconf. <br>
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      127.0.0.1 vs 0.0.0.0 <br>
+
+      > 127.0.0.1 is the **loopback** address (also known as localhost). <br><br>
+      > 0.0.0.0 is a non-routable meta-address used to designate an invalid, unknown, or 
+      non-applicable target (a ‘no particular address’ place holder).
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      Special IP Address Summary Table<br>
+      ... <br>
+      0.0.0.0/8    “This” Network <br>
+      127.0.0.0/8          Loopback
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      References: <br>
+      [[1]](https://www.howtogeek.com/225487/what-is-the-difference-between-127.0.0.1-and-0.0.0.0/) What is the Difference Between 127.0.0.1 and 0.0.0.0? <br>
+      [[2]](https://www.red-gate.com/hub/product-learning/sql-source-control/moving-from-application-automation-to-true-devops-by-including-the-database) Moving from application automation to true DevOps by including the database <br><br>
+      [[3]](http://www.tech-faq.com/127-0-0-1.html) 127.0.0.1 – What Are its Uses and Why is it Important? <br>
+      Todo <br>
+    </textarea>
+  </section>
+
+  <!-- ********************* Express Application Settings ************************** -->
+  <section data-markdown>
+    <textarea data-template>
+      > Note that sub-apps will: <br>
+      Not inherit the value of settings that have a default value. You must set the 
+      value in the sub-app. <br>
+      Inherit the value of settings with no default value; these are explicitly noted 
+      in the table below. <br>
+      Exceptions: Sub-apps will inherit the value of trust proxy even though it has a 
+      default value (for backward-compatibility); Sub-apps will not inherit the value 
+      of view cache in production (when NODE_ENV is “production”).
+    </textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+      > Exceptions: Sub-apps will inherit the value of `trust proxy` even though it has a 
+      default value (for backward-compatibility); Sub-apps will not inherit the value 
+      of `view cache` in production (when NODE_ENV is “production”).
+    </textarea>
+  </section>
+
+  <!-- ********************* Socket ************************** -->
+  <section data-markdown>
+    <textarea data-template>
+      > A network socket is an internal endpoint for sending or receiving data at a 
+      single node in a computer network. Concretely, it is a representation of this 
+      endpoint in networking software (protocol stack), such as an entry in a 
+      table (listing communication protocol, destination, status, etc.), and is a 
+      form of system resource.
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      > To manage the connection between application layer network protocols, TCP 
+      and UDP use ports and sockets. TCP and UDP operate at the host-to-host layer 
+      in the IP communication model and provide host-to-host communication services 
+      for the application layer protocol. This means an application layer protocol is 
+      on one IP host connecting to an application layer protocol on another IP host.
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      > In most situations, these host-to-host connections have a sever process 
+      running on one host and a client process running on the other host. 
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      Sockets <br>
+      - Identified by protocol and local/remote address/port 
+      - Applications may refer to many sockets
+      - Sockets accessed by many applications
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      References: <br>
+      [[1]](https://en.wikipedia.org/wiki/Network_socket) Network socket <br>
+      [[2]](http://cs.ecs.baylor.edu/~donahoo/practical/CSockets/PracticalSocketC.pdf) TCP/IP Sockets in C:Practical Guide for Programmers <br>
+      [[3]](http://www.dummies.com/programming/networking/cisco/network-basics-tcpudp-socket-and-port-overview/) NETWORK BASICS: TCP/UDP SOCKET AND PORT OVERVIEW <br>
+      [[4]](https://www.linuxnix.com/file-types-in-linux/) FILE TYPES IN LINUX/UNIX EXPLAINED IN DETAIL <br>
+      Todo <br>
+      [[1]](https://xathrya.id/2015/12/09/nodejs-unix-sockets/) NodeJS UNIX Sockets <br>
+      [[2]](http://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html) Sockets Tutorial <br>
+      [[3]](http://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html) Sockets Tutorial <br>
+    </textarea>
+  </section>
+
+
+  <!-- ********************* Linux ************************** -->
+  <section data-markdown>
+    <textarea data-template>
+      Users, Groups and Permissions in Linux
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      Users <br>
+      Add User = sudo adduser username <br>
+      Change User password = sudo passwd username <br>
+      Delete User = sudo userdel username <br>
+      Edit Users Configuration File = sudo vim /etc/passwd (shows usernames, names of users, home directories) <br>
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      Groups <br>
+      Sudo groupadd groupname <br>
+      Sudo groupdel groupname <br>
+      Sudo vim /etc/group (shows groups and users) <br>
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      Permissions <br>
+      Numbers = owner/group/everyone else <br>
+      4 = read, 2 = write, 1 = execute <br>
+      To Chanege Permissions of a File or Folder = sudo chmod 777 file/folder (-R for recursive) <br>
+      Changing Ownership <br>
+      To Change User Ownership = sudo chown -R username file/folder <br>
+      To Change Group Ownership =sudo chgrp --R groupname file/folder <br>
+      -R for Recursive for Folders <br>
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      TODO <br>
+      PID, PPID, UID, EUID, GID, EGID <br>
+      http://www.it-recipes.com/articles/blog/162
+    </textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+      References: <br>
+      [[1]](https://www.youtube.com/watch?v=zRw0SKaXSfI) Users, Groups and Permissions in Linux <br>
+      [[2]](http://www.codingdefined.com/2014/10/alter-file-permissions-in-nodejs.html) Alter File Permissions in Nodejs <br>
+      Todo <br>
+      [[1]](https://en.wikipedia.org/wiki/User_identifier) User identifier <br>
+      [[2]](http://www.it-recipes.com/articles/blog/162) PID, PPID, UID, EUID, GID, EGID <br>
+    </textarea>
+  </section>
+
+
+
+  <!-- ********************* Work Progress ************************** -->
+  <section data-markdown>
+    <textarea data-template>
+      Process:
+      init <br>
+      config <br>
+      debug <br>
+
     </textarea>
   </section>
 </section>
