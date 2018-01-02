@@ -103,6 +103,11 @@
     </textarea>
   </section>
   <section data-markdown>
+    TODO
+    <br> TCP Client/Server Interaction
+    <br> http://cs.ecs.baylor.edu/~donahoo/practical/CSockets/PracticalSocketC.pdf
+  </section>
+  <section data-markdown>
     <textarea data-template>
       References: <br>
       [[1]](https://en.wikipedia.org/wiki/Network_socket) Network socket <br>
@@ -171,6 +176,104 @@
     </textarea>
   </section>
 
+  <!-- ********************* Native Node Api ************************** -->
+  <section data-markdown>
+    <textarea data-template>
+      `fs.unlinkSync(path)`
+      DESC:
+      > `unlink()` deletes a name from the filesystem.  If that name was the
+      last link to a file and no processes have the file open, the file is
+      deleted and the space it was using is made available for reuse.
+    </textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+      References: <br>
+      [[1]](http://man7.org/linux/man-pages/man2/unlink.2.html) Linux Programmer's Manual <br>
+      [[2]](https://en.wikipedia.org/wiki/Unlink_(Unix)) unlink (Unix) <br>
+      Todo <br>
+    </textarea>
+  </section>
+
+
+  <!-- ********************* HTTP keepAlive ************************** -->
+  <section data-markdown>
+    <textarea data-template>
+      Gracefully shutting down a Nodejs HTTP server
+      - Stops accepting new connections
+      - Stops fulfilling new requests
+      - Waits for in-flight requests to complete
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      For example, I set `keepAlive` as 10000ms, and I establish a connection(socket) and 
+      close it at 5000ms, I am still able to request and get response from server using this 
+      socket.
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      ``` javascript
+        this.httpServer.on('connection', (socket) => {
+          console.log(`get a connection`);
+          socket.setKeepAlive(true, 10000);
+        });
+      ```
+      ``` javascript
+        stop () {
+          this.httpServer.close(() => {
+            console.log('server closed');
+          });
+        }
+      ```
+      ``` javascript
+        setTimeout(() => {
+          if (appServer) {
+            console.log('stop it');
+            appServer.stop()
+          }
+        },5000);
+      ```
+    </textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+      `server.close([callback])` <br>
+      Stops the server from accepting new connections. <br>
+      But the keep alived socket can be used to send http requests even after executing `server.close([callback])`.
+    </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+      `server.close([callback])` <br><br>
+      Stops the server from accepting new connections and keeps existing connections. 
+      This function is **asynchronous**, the server is finally closed **when all connections are ended** 
+      and the server emits a close' event. The optional callback will be called once 
+      the 'close' event occurs. Unlike that event, it will be called with an Error as its 
+      only argument if the server was not open when it was closed.
+    </textarea>
+  </section>
+  <section data-template>
+    <textarea data-template>
+      TODO:<br>
+      Try to implement open source http-shutdown solution.
+    </textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+      References: <br>
+      [[1]](http://dillonbuchanan.com/programming/gracefully-shutting-down-a-nodejs-http-server/) Gracefully shutting down a Nodejs HTTP server <br>
+      Todo <br>
+      [[1]](https://blog.stackpath.com/glossary/keep-alive/) What is Keep-Alive? <br>
+      [[2]](https://github.com/thedillonb/http-shutdown/blob/master/index.js) http-shutdown <br>
+    </textarea>
+  </section>
+
+
 
 
   <!-- ********************* Work Progress ************************** -->
@@ -180,7 +283,7 @@
       init <br>
       config <br>
       debug <br>
-
+      rebuild project booting process structure <br>
     </textarea>
   </section>
 </section>
